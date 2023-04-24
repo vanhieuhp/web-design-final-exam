@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>cau 4</title>
+   <style>
+      /* Cau 1 */
+      .header {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .cau1_image {
+         height: 100px;
+         width: 100px;
+         margin-left: 20px;
+      }
+
+      .title {
+         font-size: 30px;
+      }
+
+      .header_tabbar {
+         display: flex;
+      }
+
+      .cau1_ul {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+      }
+
+      .cau1_li {
+         display: inline-block;
+         margin-right: 10px;
+      }
+
+      /* Cau 2 */
+      .box {
+         width: 100%;
+         height: 200px;
+         border: 2px dashed #FFFAD7;
+         background-color: #E97777;
+         text-align: center;
+         line-height: 200px;
+      }
+
+      .box:hover {
+         background-color: #FCDDB0;
+         border: 2px dashed #E97777;
+         transition: 0.2s;
+      }
+
+      /* Cau 3 */
+      #danhmuc {
+         display: flex;
+         flex-direction: column;
+      }
+      .sanpham {
+         margin-top: 20px;
+         border: 2px solid #E97777;
+         padding: 20px;
+      }
+      .footer {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="header">
+      <h1 class="title" style="color: #ff9f9f;">My Website</h1>
+      <img class="cau1_image" src="./image.jpg" alt="">
+   </div>
+   <ul class="cau1_ul">
+      <li class="cau1_li">Trang chủ</li>
+      <li class="cau1_li">Sản phẩm</li>
+      <li class="cau1_li">Liên hệ</li>
+   </ul>
+   <div class="box">Trang quảng cáo sản phẩm</div>
+   <div id="danhmuc"></div>
+   <br/>
+   <hr/>
+   <div class="footer">
+      <div class="footer_hoten">Họ tên: Nguyễn Văn Hiếu</div>
+      <div class="footer_lop">Lớp: Thiết kế WEB 01</div>
+      <div class="footer_msv">Mã sinh viên: 11201503</div>
+   </div>
+   <hr/>
+</body>
+<script>
+   var data = [
+      {
+         ten: "hộp bút",
+         gia: "10$",
+         mota: "Hộp bút cho học sinh"
+      },
+      {
+         ten: "Máy tính",
+         gia: "20$",
+         mota: "Máy tính cầm tay"
+      },
+      {
+         ten: "Bút bi",
+         gia: "5$",
+         mota: "Bút bi cho sinh viên"
+      },
+      {
+         ten: "Vở ghi",
+         gia: "5$",
+         mota: "Vở dùng cho việc ghi chép"
+      }
+   ]
+   for (let s of data) {
+      console.log(s.gia);
+
+      const nodeSp = document.createElement("div");
+      nodeSp.setAttribute("class", "sanpham")
+
+      const nodeTen = document.createElement("div");
+      nodeTen.setAttribute("class", "mota_sp");
+      nodeTen.appendChild(document.createTextNode("Tên sp: " + s.ten));
+      nodeSp.append(nodeTen)
+
+      const nodeGia = document.createElement("div");
+      nodeGia.setAttribute("class", "gia_sp")
+      nodeGia.appendChild(document.createTextNode("Giá Sp: " + s.gia));
+      nodeSp.append(nodeGia)
+
+      const nodeMota = document.createElement("div");
+      nodeMota.setAttribute("class", "ten_sp");
+      nodeMota.appendChild(document.createTextNode("Mô tả sp: " + s.mota));
+      nodeSp.append(nodeMota)
+
+      document.getElementById("danhmuc").appendChild(nodeSp)
+   }
+</script>
+</html>
