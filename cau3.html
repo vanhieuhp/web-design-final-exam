@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Cau3</title>
+   <style>
+      /* Cau 3 */
+      #danhmuc {
+         display: flex;
+         flex-direction: column;
+      }
+      .sanpham {
+         margin-top: 20px;
+         border: 2px solid #E97777;
+         padding: 20px;
+      }
+      .footer {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="danhmuc"></div>
+</body>
+<script>
+   var data = [
+      {
+         ten: "hộp bút",
+         gia: "10$",
+         mota: "Hộp bút cho học sinh"
+      },
+      {
+         ten: "Máy tính",
+         gia: "20$",
+         mota: "Máy tính cầm tay"
+      },
+      {
+         ten: "Bút bi",
+         gia: "5$",
+         mota: "Bút bi cho sinh viên"
+      },
+      {
+         ten: "Vở ghi",
+         gia: "5$",
+         mota: "Vở dùng cho việc ghi chép"
+      }
+   ]
+   for (let s of data) {
+      console.log(s.gia);
+
+      const nodeSp = document.createElement("div");
+      nodeSp.setAttribute("class", "sanpham")
+
+      const nodeTen = document.createElement("div");
+      nodeTen.setAttribute("class", "mota_sp");
+      nodeTen.appendChild(document.createTextNode("Tên sp: " + s.ten));
+      nodeSp.append(nodeTen)
+
+      const nodeGia = document.createElement("div");
+      nodeGia.setAttribute("class", "gia_sp")
+      nodeGia.appendChild(document.createTextNode("Giá Sp: " + s.gia));
+      nodeSp.append(nodeGia)
+
+      const nodeMota = document.createElement("div");
+      nodeMota.setAttribute("class", "ten_sp");
+      nodeMota.appendChild(document.createTextNode("Mô tả sp: " + s.mota));
+      nodeSp.append(nodeMota)
+
+      document.getElementById("danhmuc").appendChild(nodeSp)
+   }
+</script>
+
+</html>
